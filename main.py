@@ -63,6 +63,8 @@ def match(queryImage, trainingImage):
 def match_2(template, target):
     """
     由于模板匹配对于旋转和缩放的匹配效果不好，尝试通过插值对图像进行缩放，并没有改进匹配效果
+    尝试对模板图像裁剪的更精准，提高了匹配效果
+    todo: 尝试二值分割提高匹配效果
     :param template:
     :param target:
     :return:
@@ -100,11 +102,11 @@ if __name__ == '__main__':
     # cv.destroyAllWindows()
 
     # 测试图像匹配
-    queryImage = cv.imread("imgs/2_1.png")
+    queryImage = cv.imread("imgs/A_4.png")
     # queryImage = cv.cvtColor(queryImage, cv.COLOR_RGB2BGR)
-    trainingImage = cv.imread("imgs/00.png")
+    trainingImage = cv.imread("imgs/test1.png")
     # trainingImage = cv.cvtColor(trainingImage, cv.COLOR_RGB2BGR)
-    trainingImage = mask(trainingImage, mode=0)
+    trainingImage = mask(trainingImage, mode=1)
 
     # match(queryImage, trainingImage)
 
